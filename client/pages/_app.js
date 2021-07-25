@@ -16,9 +16,9 @@ const App = ({ Component, pageProps }) => {
       });
     return clientRef.current;
   };
-
+  const client = getClient();
   return (
-    <QueryClientProvider client={getClient()}>
+    <QueryClientProvider client={client}>
       <Hydrate state={pageProps.dehydratedState}>
         <Component {...pageProps} />
       </Hydrate>
