@@ -6,7 +6,7 @@ import './index.scss';
 const App = ({ Component, pageProps }) => {
   const clientRef = useRef(null);
   const getClient = () => {
-    if (!clientRef.current) {
+    if (!clientRef.current)
       clientRef.current = new QueryClient({
         defaultOptions: {
           queries: {
@@ -14,14 +14,11 @@ const App = ({ Component, pageProps }) => {
           },
         },
       });
-    }
     return clientRef.current;
   };
 
-  const queryClient = getClient();
-
   return (
-    <QueryClientProvider client={queryClient}>
+    <QueryClientProvider client={getClient()}>
       <Hydrate state={pageProps.dehydratedState}>
         <Component {...pageProps} />
       </Hydrate>

@@ -1,4 +1,4 @@
-import { gql } from 'graphql-tag';
+import gql from 'graphql-tag';
 
 export const GET_MESSAGES = gql`
   query GET_MESSAGES {
@@ -34,8 +34,8 @@ export const CREATE_MESSAGE = gql`
 `;
 
 export const UPDATE_MESSAGE = gql`
-  mutation UPDATE_MESSAGE($text: String!, $id: ID!, $userId: ID!) {
-    updateMessage(text: $text, id: $id, userId: $userId) {
+  mutation UPDATE_MESSAGE($id: ID!, $text: String!, $userId: ID!) {
+    updateMessage(id: $id, text: $text, userId: $userId) {
       id
       text
       userId

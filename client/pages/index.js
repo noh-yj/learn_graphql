@@ -3,14 +3,12 @@ import { fetcher } from '../quertClient';
 import { GET_MESSAGES } from '../graphql/message';
 import { GET_USERS } from '../graphql/user';
 
-const Home = ({ smsgs, users }) => {
-  return (
-    <>
-      <h1>SIMPLE SNS</h1>
-      <MsgList smsgs={smsgs} users={users} />
-    </>
-  );
-};
+const Home = ({ smsgs, users }) => (
+  <>
+    <h1>SIMPLE SNS</h1>
+    <MsgList smsgs={smsgs} users={users} />
+  </>
+);
 
 export const getServerSideProps = async () => {
   const { messages: smsgs } = await fetcher(GET_MESSAGES);
